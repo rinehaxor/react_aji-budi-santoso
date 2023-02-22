@@ -12,28 +12,32 @@
     <h2>Detail Product</h2>
     <form>
       <p>Product name :</p>
-      <input type="text" />
+      <input type="text" minlength="6" maxlength="50" id="name" required />
       <p>Product Category :</p>
-      <select id="product">
-        <option placeholder="  "></option>
-        <option value=""></option>
-        <option value=""></option>
+      <select id="product" required>
+        <option value="category">category</option>
+        <option value="category">category</option>
+        <option value="category">category</option>
       </select>
       <p>Product Freshness :</p>
-      <input type="radio" />
+
+      <input type="radio" name="freshness" id="brand1" value="Brand New" required />
       <label for="html">Brand New</label><br />
-      <input type="radio" />
+      <input type="radio" name="freshness" id="brand2" value="Second Hank" />
       <label for="css">Second Hank</label><br />
-      <input type="radio" />
+      <input type="radio" name="freshness" id="brand3" value="Refurbished" />
       <label for="javascript">Refurbished</label>
+
+      <br />
       <br />
 
       <label for="myfile">Image of Product:</label>
-      <input type="file" />
+      <input type="file" name="img" id="img" required />
       <p>Adtional Description</p>
-      <textarea></textarea>
+      <textarea name="description" id="descriotion" cols="35" rows="9" required></textarea>
       <p>Product Price :</p>
       <input type="number" placeholder="$100" />
+      <br />
       <br />
       <input type="submit" />
     </form>
