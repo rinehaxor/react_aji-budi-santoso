@@ -1,0 +1,100 @@
+.container-main {
+  height: 760px;
+  background-color: #37517e;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.container-kiri {
+  padding: 0 0 100px 100px;
+  width: 50%;
+}
+.container-kanan {
+  width: 50%;
+}
+.container-kanan img {
+  width: 636px;
+}
+.text-hero {
+  font-weight: 700;
+  font-size: 48px;
+}
+.text-keterangan {
+  font-weight: 500;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+}
+
+.tombol {
+  padding-top: 50px;
+}
+
+#tombol-kiri {
+  padding: 15px 30px;
+  border: 1px black solid;
+  color: white;
+  text-decoration: none;
+  background-color: #47b2e4;
+  border-radius: 50px;
+  font-weight: 500;
+}
+#tombol-kanan {
+  padding: 10px 18px;
+  margin-left: 50px;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 400;
+}
+
+.subsribe {
+  background-color: #f3f5fa;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 50px 0;
+  height: 239px;
+  margin-bottom: 100px;
+}
+.subsribe-text {
+  width: 636px;
+}
+.subsribe-text h2 {
+  color: #37517e;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.subsribe-text p {
+  font-family: 'Open Sans', sans-serif;
+}
+.subsribe-text form {
+  position: relative;
+}
+form input {
+  width: 100%;
+  border-radius: 50px;
+  border-style: none;
+  height: 42.5px;
+  padding: 15px;
+}
+form button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 9.25px 20px;
+  border-style: none;
+  border-radius: 50px;
+  background-color: #47b2e4;
+  color: white;
+}
