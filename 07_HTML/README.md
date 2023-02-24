@@ -6,7 +6,7 @@
   <h2>Tag pada HTML</h2>
 
 <ul>
-<li>`<html>: untuk membuat halaman HTML yang mencakup semua konten dan elemen</li>
+<li>`<html>`: untuk membuat halaman HTML yang mencakup semua konten dan elemen</li>
 <li></li>
 <li></li>
 </ul>
