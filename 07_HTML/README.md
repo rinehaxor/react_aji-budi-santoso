@@ -1,6 +1,6 @@
-#Summary
+# Summary
 <br>
-##Apa itu HTML
+## Apa itu HTML
 <b>HTML (Hypertext Markup Language)<b> adalah sebuah standar yang digunakan secara luas untuk menampilkan web. <b>HTML<b> juga di gunakan untuk artsitektur sebuah website.
 
 ##Tag pada HTML
