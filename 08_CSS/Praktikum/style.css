@@ -97,8 +97,12 @@ form button {
   border-radius: 50px;
   background-color: #47b2e4;
   color: white;
+  transition-duration: 0.4s;
 }
 
+form button:hover {
+  background-color: #4800ff;
+}
 .footer-deskripsi {
   display: flex;
   min-height: 340px;
@@ -199,7 +203,6 @@ form button {
   .container-main {
     display: grid;
     height: auto;
-
     padding: 0px;
   }
   .container-kiri {
@@ -207,6 +210,7 @@ form button {
   }
   .container-kanan {
     width: auto;
+    padding: 0 100px;
   }
   .text-hero {
     font-weight: 700;
@@ -216,7 +220,6 @@ form button {
     display: grid;
     text-align: center;
     height: auto;
-
     margin: 0 200px 0 100px;
   }
   .services {
