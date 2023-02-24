@@ -98,3 +98,135 @@ form button {
   background-color: #47b2e4;
   color: white;
 }
+
+.footer-deskripsi {
+  display: flex;
+  min-height: 340px;
+  padding-left: 100px;
+  align-items: center;
+}
+.footer-deskripsi > :nth-child(n) {
+  width: 330px;
+  height: 220px;
+}
+.deskripsi-alamat {
+  font-family: 'Jost', sans-serif;
+}
+.deskripsi-alamat h1 {
+  font-size: 28px;
+  line-height: 28px;
+  font-weight: 600;
+  color: #37517e;
+}
+.deskripsi-alamat p {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #5e5e5e;
+}
+.deskripsi-alamat p span {
+  font-weight: 700;
+}
+.footer-deskripsi h2 {
+  font-family: 'Jost', sans-serif;
+  font-size: 16px;
+  line-height: 19.2px;
+  font-weight: 700;
+  margin-bottom: 19px;
+}
+.footer-deskripsi ul {
+  list-style-type: none;
+  font-family: 'Open Sans', sans-serif;
+}
+.footer-deskripsi a {
+  text-decoration: none;
+  color: #777777;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 400px;
+}
+.footer-deskripsi ul li {
+  margin-bottom: 24px;
+}
+
+.social-account {
+  display: flex;
+}
+.social-account a {
+  height: 36px;
+  width: 36px;
+  border-radius: 18px;
+  background-color: #47b2e4;
+  margin-right: 7.64px;
+}
+.social p {
+  color: #444444;
+  line-height: 21px;
+}
+.copyright {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #37517e;
+  color: white;
+  padding: 0 100px 0 100px;
+}
+.copyright-deskripsi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 81px;
+}
+.copyright-kiri {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+}
+.copyright-kiri span {
+  font-weight: 700;
+}
+.copyright-kanan {
+  font-size: 13px;
+  line-height: 19.5px;
+  font-weight: 400px;
+}
+.copyright-kanan a {
+  color: #47b2e4;
+  text-decoration: none;
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 886px) {
+  .container-main {
+    display: grid;
+    height: auto;
+
+    padding: 0px;
+  }
+  .container-kiri {
+    width: auto;
+  }
+  .container-kanan {
+    width: auto;
+  }
+  .text-hero {
+    font-weight: 700;
+    font-size: 48px;
+  }
+  .footer-deskripsi {
+    display: grid;
+    text-align: center;
+    height: auto;
+
+    margin: 0 200px 0 100px;
+  }
+  .services {
+    padding-top: 100px;
+  }
+  .social {
+    margin-top: 200px;
+  }
+  .social-account a {
+    margin-left: 20px;
+    text-align: center;
+  }
+}
