@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Boostrap</title>
@@ -59,9 +55,9 @@
             <label for="product-category" class="form-label">Product Category</label>
             <select name="product-category" class="form-select" required>
               <option selected disabled value="">Pilih kategori produk</option>
-              <option value="category 1">Category 1</option>
-              <option value="category 2">Category 2</option>
-              <option value="category 3">Category 3</option>
+              <option value="1">Category 1</option>
+              <option value="2">Category 2</option>
+              <option value="3">Category 3</option>
             </select>
             <div class="invalid-feedback">Wajib di Isi</div>
           </div>
@@ -98,7 +94,7 @@
             <input type="number" name="price" class="form-control" id="productPrice" placeholder="$1" required />
             <div class="invalid-feedback">Wajib di Isi</div>
           </div>
-          <button type="submit" class="btn btn-primary w-100 mb-5 data-toggle=" tooltip data-placement="top" title="Ini adalah Submit">Submit</button>
+          <button type="submit" class="btn btn-primary w-100 mb-5">Submit</button>
         </form>
         <div class="alert alert-success" role="alert" id="myAlert" style="display: none"></div>
         <script>
