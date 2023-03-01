@@ -49,6 +49,7 @@
           <div class="mb-3 col-md-6 col-sm-8">
             <label for="product_name" class="form-label has-validation">Product Name</label>
             <input type="text" name="product_name" class="form-control" id="product_name" required />
+            <span class="text-danger" id="nama-error"></span>
           </div>
           <div class="mb-3 col-md-4 col-sm-6 has-validation">
             <label for="product_category" class="form-label">Product Category</label>
@@ -57,34 +58,41 @@
               <option value="1">Category 1</option>
               <option value="2">Category 2</option>
               <option value="3">Category 3</option>
+              <span id="nama-error"></span>
             </select>
           </div>
           <div class="mb-3 col-md-4 col-sm-6 has-validation">
             <label for="image" class="form-label">Image</label>
             <input type="file" name="image" class="form-control" id="image" required />
+            <span id="nama-error"></span>
           </div>
-          <div class="mb-3 col-md-4 col-sm-6 form-check has-validation" id="product_freshness">
+          <div class="mb-3 col-md-4 col-sm-6 form-check has-validation">
             <label class="pb-1 form-label">Product Freshness</label>
             <div class="form-check">
-              <input type="radio" class="form-check-input" id="brandNew" name="radio-stacked" required />
+              <input type="radio" class="form-check-input" id="product_freshness" value="brandNew" name="radio-stacked" required />
               <label for="brandNew" class="form-check-label">Brand New</label>
+              <span id="nama-error"></span>
             </div>
             <div class="form-check">
-              <input type="radio" class="form-check-input" id="secondHand" name="radio-stacked" />
+              <input type="radio" class="form-check-input" id="product_freshness" value="secondHand" name="radio-stacked" />
               <label for="secondHand" class="form-check-label">Second Hand</label>
+              <span id="nama-error"></span>
             </div>
             <div class="form-check">
-              <input type="radio" class="form-check-input" id="refurbished" name="radio-stacked" />
+              <input type="radio" class="form-check-input" id="product_freshness" value="refurbished" name="radio-stacked" />
               <label for="refurbished" class="form-check-label">Refurbrished </label>
+              <span id="nama-error"></span>
             </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Additional Description</label>
             <textarea class="form-control" id="description" rows="10" required></textarea>
+            <span id="nama-error"></span>
           </div>
           <div class="mb-5 has-validation">
             <label for="productPrice" class="form-label">Product Price</label>
             <input type="number" name="price" class="form-control" id="product_price" placeholder="$1" required />
+            <span id="nama-error"></span>
           </div>
           <button type="submit" id="submit_button" class="btn btn-primary w-100 mb-5" onclick="validasi()">Submit</button>
         </form>
@@ -101,26 +109,81 @@
             var valid = true;
 
             var simbol = /^[a-zA-Z0-9 ]*$/;
+
             if (input.length > 25) {
-              alert('Input tidak boleh melebihi 25 karakter!');
+              alert('Nama Produk tidak boleh melebihi 25 Huruf!');
+              valid = false;
             } else if (input.length > 10) {
               alert('Last Name must not exceed 25 characters.');
-              if (!simbol.test(input)) {
-                alert('Name must not contain symbols.');
-              }
-            } else if (input == '') {
+            } else if (!simbol.test(input)) {
+              alert('Name must not contain symbols.');
+              valid = false;
+            } else if (input1 == '' || input5 == '') {
               alert('Please enter a valid Prouct name.');
-              if (input1 == '' || input2 == '' || input3 == '' || input4 == '' || input5 == '') {
-                alert('Input tidak boleh kosong! ' + input);
-                valid = false;
-              }
+              valid = false;
+            }
+
+            if (input1 == '' || input2 == '' || input3 == '' || input4 == '' || input5 == '') {
+              alert('The xxx field must be filled in');
+              valid = false;
             }
             if (!valid) {
               submit_button.disabled = true;
             } else {
               submit_button.disabled = false;
+              alert('Product Name: ' + input + ' ,Cateogry: ' + input1 + ' ,Image: ' + input2 + ' ,Product Freshness: ' + input3 + ' ,Description: ' + input4 + ' ,Price: ' + input5);
             }
           }
+          const namaInput = document.getElementById('product_name');
+          const productCategory = document.getElementById('product_category');
+          const image = document.getElementById('image');
+          const productFreshness = document.getElementById('product_freshness');
+          const description = document.getElementById('description');
+          const price = document.getElementById('product_price');
+          const namaError = document.getElementById('nama-error');
+
+          namaInput.addEventListener('blur', function () {
+            if (namaInput.value.length == '') {
+              namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
+            } else {
+              namaError.innerHTML = '';
+            }
+          });
+          productCategory.addEventListener('blur', function () {
+            if (productCategory.value.length == '') {
+              namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
+            } else {
+              namaError.innerHTML = '';
+            }
+          });
+          image.addEventListener('blur', function () {
+            if (image.value.length == '') {
+              namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
+            } else {
+              namaError.innerHTML = '';
+            }
+          });
+          productFreshness.addEventListener('blur', function () {
+            if (productFreshness.value.length == '') {
+              namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
+            } else {
+              namaError.innerHTML = '';
+            }
+          });
+          description.addEventListener('blur', function () {
+            if (description.value.length == '') {
+              namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
+            } else {
+              namaError.innerHTML = '';
+            }
+          });
+          price.addEventListener('blur', function () {
+            if (price.value.length == '') {
+              namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
+            } else {
+              namaError.innerHTML = '';
+            }
+          });
         </script>
       </section>
     </div>
