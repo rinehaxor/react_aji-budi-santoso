@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Product</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-semibold" href="#">Simple Header</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse container-fluid justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link btn btn-primary mx-1 px-3 text-light" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none mx-1 px-3 text-primary" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none mx-1 px-3 text-primary" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none mx-1 px-3 text-primary" href="#">FAQs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none mx-1 text-primary" href="#">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <section id="main" class="justify-content-center d-grid z-3">
+        <div class="row">
+          <div class="col-lg-6 mx-auto p-4">
+            <div class="deskripsi text-center">
+              <img src="bootstrap-logo.svg.png" alt="bootstrap" />
+              <p class="fs-2 fw-semibold pt-5">Create Account</p>
+              <span class="fs-5 fw-lighter"
+                >Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</span
+              >
+            </div>
+
+            <div class="alert alert-success" role="alert" id="myAlert" style="display: none"></div>
+            <div>
+              <form class="container-fluid mt-5 was-validated" id="myForm">
+                <h2 class="fs-3 fw-medium">Detail Form</h2>
+                <div class="mb-3">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="name" class="form-label">First name</label>
+                      <input type="text" class="form-control" required />
+                      <div class="invalid-feedback">Wajib di Isi</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="lastname" class="form-label">Last name</label>
+                      <input type="text" class="form-control" required />
+                      <div class="invalid-feedback">Wajib di Isi</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required />
+                  </div>
+                  <div class="invalid-feedback">Wajib di Isi</div>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" placeholder="you@example.com" required />
+                  <div class="invalid-feedback">Wajib di Isi</div>
+                </div>
+                <div class="mb-3">
+                  <label for="gender" class="form-label">Gender</label>
+                  <div id="gender">
+                    <div class="form-check">
+                      <input type="radio" name="gender" />
+                      <label class="form-check-label" for="Male"> Male </label>
+                    </div>
+                    <div class="form-check">
+                      <input type="radio" name="gender" />
+                      <label class="form-check-label" for="Female">Female</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="radio" name="gender" id="Others" />
+                      <label class="form-check-label" for="Others">Others</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="address" class="form-label">Address</label>
+                  <input type="text" id="alamat" placeholder="1234 Main St" required />
+                  <div class="invalid-feedback">Wajib di Isi</div>
+                </div>
+                <div class="mb-3">
+                  <label for="address2" class="form-label">Address 2 (Optional)</label>
+                  <input type="text" id="alamat2" placeholder="Apartment or suite" />
+                </div>
+                <div class="mb-3 w-50">
+                  <label for="Nationality" class="form-label">Nationality</label>
+                  <select name="product-category" class="form-select" required>
+                    <option selected disabled value="">Chosee...</option>
+                    <option value="1">Category 1</option>
+                    <option value="2">Category 2</option>
+                    <option value="3">Category 3</option>
+                  </select>
+                  <div class="invalid-feedback">Wajib di Isi</div>
+                </div>
+                <hr />
+                <div class="mb-3">
+                  <label for="" class="form-label">Language Spoken :</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" />
+                    <label class="form-check-label" for="langugae1"> Bahasa </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" />
+                    <label class="form-check-label" for="language2"> Inggris</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" />
+                    <label class="form-check-label" for="language3"> Other</label>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Create Account</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="list-product m-1">
+      <h1 class="text-center">List Product</h1>
+      <table class="table table-striped table-md table-bordered border">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>First name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Address 2</th>
+            <th>Nationality</th>
+            <th>Language</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1001</td>
+            <td>Lorem</td>
+            <td>ipsum</td>
+            <td>dolor</td>
+            <td>sit</td>
+            <td>Adipiscing</td>
+            <td>Elit</td>
+            <td>Elit2</td>
+            <td>Indonesia</td>
+            <td>Bahasa</td>
+          </tr>
+          <tr>
+            <td>1002</td>
+            <td>Lorem</td>
+            <td>ipsum</td>
+            <td>dolor</td>
+            <td>sit</td>
+            <td>Adipiscing</td>
+            <td>Elit</td>
+            <td>Elit2</td>
+            <td>Indonesia</td>
+            <td>Bahasa</td>
+          </tr>
+          <tr>
+            <td>1003</td>
+            <td>Lorem</td>
+            <td>ipsum</td>
+            <td>dolor</td>
+            <td>sit</td>
+            <td>Adipiscing</td>
+            <td>Elit</td>
+            <td>Elit2</td>
+            <td>Indonesia</td>
+            <td>Bahasa</td>
+          </tr>
+          <tr>
+            <td>1004</td>
+            <td>Lorem</td>
+            <td>ipsum</td>
+            <td>dolor</td>
+            <td>sit</td>
+            <td>Adipiscing</td>
+            <td>Elit</td>
+            <td>Elit2</td>
+            <td>Indonesia</td>
+            <td>Bahasa</td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <input type="text" placeholder="Search By Usermame" />
+      </div>
+
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary">Deletion</button>
+        <button type="button" class="btn btn-white text-primary">Search</button>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script>
+      document.getElementById('myForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var alertMessage = 'Anda Telah Membuat Akun';
+        document.getElementById('myAlert').innerHTML = alertMessage;
+        document.getElementById('myAlert').style.display = 'block';
+      });
+    </script>
+  </body>
+</html>
