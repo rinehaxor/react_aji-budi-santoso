@@ -96,162 +96,164 @@
           </div>
           <button type="submit" id="submit_button" class="btn btn-primary w-100 mb-5" onclick="validasi()">Submit</button>
         </form>
-
-        <script>
-          document.getElementById('submit_button').addEventListener('click', function (event) {
-            event.preventDefault();
-          });
-          function validasi() {
-            var input = document.getElementById('product_name').value;
-            var input1 = document.getElementById('product_category').value;
-            var input2 = document.getElementById('image').value;
-            var input3 = document.getElementById('product_freshness').value;
-            var input4 = document.getElementById('description').value;
-            var input5 = document.getElementById('product_price').value;
-            var submit_button = document.getElementById('submit_button');
-            var valid = true;
-
-            var simbol = /^[a-zA-Z0-9 ]*$/;
-
-            if (input.length > 25) {
-              alert('Nama Produk tidak boleh melebihi 25 Huruf!');
-              valid = false;
-            } else if (input.length > 10) {
-              alert('Last Name must not exceed 25 characters.');
-            } else if (!simbol.test(input)) {
-              alert('Name must not contain symbols.');
-              valid = false;
-            } else if (input1 == '' || input5 == '') {
-              alert('Please enter a valid Prouct name.');
-              valid = false;
-            }
-
-            if (input1 == '' || input2 == '' || input3 == '' || input4 == '' || input5 == '') {
-              alert('The xxx field must be filled in');
-              valid = false;
-            }
-            if (!valid) {
-              submit_button.disabled = true;
-            } else {
-              submit_button.disabled = false;
-              alert('Product Name: ' + input + ' ,Cateogry: ' + input1 + ' ,Image: ' + input2 + ' ,Product Freshness: ' + input3 + ' ,Description: ' + input4 + ' ,Price: ' + input5);
-            }
-          }
-          const namaInput = document.getElementById('product_name');
-          const productCategory = document.getElementById('product_category');
-          const image = document.getElementById('image');
-          const productFreshness = document.getElementById('product_freshness');
-          const description = document.getElementById('description');
-          const price = document.getElementById('product_price');
-          const namaError = document.getElementById('nama-error');
-
-          namaInput.addEventListener('blur', function () {
-            if (namaInput.value.length == '') {
-              namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
-            } else {
-              namaError.innerHTML = '';
-            }
-          });
-          productCategory.addEventListener('blur', function () {
-            if (productCategory.value.length == '') {
-              namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
-            } else {
-              namaError.innerHTML = '';
-            }
-          });
-          image.addEventListener('blur', function () {
-            if (image.value.length == '') {
-              namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
-            } else {
-              namaError.innerHTML = '';
-            }
-          });
-          productFreshness.addEventListener('blur', function () {
-            if (productFreshness.value.length == '') {
-              namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
-            } else {
-              namaError.innerHTML = '';
-            }
-          });
-          description.addEventListener('blur', function () {
-            if (description.value.length == '') {
-              namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
-            } else {
-              namaError.innerHTML = '';
-            }
-          });
-          price.addEventListener('blur', function () {
-            if (price.value.length == '') {
-              namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
-            } else {
-              namaError.innerHTML = '';
-            }
-          });
-        </script>
       </section>
     </div>
-    <div class="list-product ms-3">
-      <h1 class="text-center">List Product</h1>
-      <table class="table table-striped table-md w-75 table-bordered border">
+    <div class="container">
+      <h2 class="text-center fw-bold fs-2">List Product</h2>
+      <table class="table table-striped">
         <thead>
           <tr>
-            <th>No</th>
-            <th>Product name</th>
-            <th>Product Category</th>
-            <th>image of Product</th>
-            <th>Product Freshness</th>
-            <th>Additional Desciption</th>
-            <th>Product Price</th>
+            <th scope="col">No</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">product category</th>
+            <th scope="col">Image of Product</th>
+            <th scope="col">Product Freshness</th>
+            <th scope="col">Additional Description</th>
+            <th scope="col">Product Price</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1001</td>
-            <td>Lorem</td>
-            <td>ipsum</td>
-            <td>dolor</td>
-            <td>Brand New</td>
-            <td>Adipiscing</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>1002</td>
-            <td>Lorem</td>
-            <td>ipsum</td>
-            <td>dolor</td>
-            <td>Second Hand</td>
-            <td>Adipiscing</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>1003</td>
-            <td>Lorem</td>
-            <td>ipsum</td>
-            <td>dolor</td>
-            <td>Brand New</td>
-            <td>Adipiscing</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>1004</td>
-            <td>Lorem</td>
-            <td>ipsum</td>
-            <td>dolor</td>
-            <td>Refushed</td>
-            <td>Adipiscing</td>
-            <td>9</td>
-          </tr>
-        </tbody>
+        <tbody id="tabel_data"></tbody>
       </table>
-      <div>
-        <input type="text" placeholder="Search By Product Name" />
-      </div>
-
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary">Deletion</button>
-        <button type="button" class="btn btn-white text-primary">Search</button>
-      </div>
+      <input type="text" class="form-control w-25 mb-3" id="search" placeholder="Search..." />
+      <button class="btn btn-danger" id="delete">Delete</button>
+      <button class="btn btn-primary" id="searchBtn">Search</button>
+      <br /><br />
     </div>
+    <script>
+      document.getElementById('submit_button').addEventListener('click', function (event) {
+        event.preventDefault();
+      });
+      function validasi() {
+        var product_name = document.getElementById('product_name').value;
+        var product_category = document.getElementById('product_category').value;
+        var image = document.getElementById('image').value;
+        var product_freshness = document.getElementById('product_freshness').value;
+        var description = document.getElementById('description').value;
+        var product_price = document.getElementById('product_price').value;
+        var submit_button = document.getElementById('submit_button');
+        var valid = true;
+
+        var simbol = /^[a-zA-Z0-9 ]*$/;
+
+        if (product_name.length > 25) {
+          alert('Nama Produk tidak boleh melebihi 25 Huruf!');
+          valid = false;
+        } else if (product_name.length > 10) {
+          alert('Last Name must not exceed 25 characters.');
+        } else if (!simbol.test(product_name)) {
+          alert('Name must not contain symbols.');
+          valid = false;
+        } else if (product_name == '' || product_price == '') {
+          alert('Please enter a valid Prouct name.');
+          valid = false;
+        }
+
+        if (product_category == '' || image == '' || product_freshness == '' || description == '' || product_price == '') {
+          alert('The xxx field must be filled in');
+          valid = false;
+        }
+        if (!valid) {
+          submit_button.disabled = true;
+        } else {
+          submit_button.disabled = false;
+          alert('Product Name: ' + product_name + ' ,Cateogry: ' + product_category + ' ,Image: ' + image + ' ,Product Freshness: ' + product_freshness + ' ,Description: ' + description + ' ,Price: ' + product_price);
+        }
+        console.log(image);
+        tambahData(product_name, product_category, image, product_freshness, description, product_price);
+      }
+
+      const data = [];
+      const tabel_data = document.getElementById('tabel_data');
+      let row;
+      const deleteBtn = document.getElementById('delete');
+      const search = document.getElementById('search');
+      const searchBtn = document.getElementById('searchBtn');
+
+      function tambahData(product_name, product_category, image, product_freshness, description, product_price) {
+        tabel_data.innerHTML = '';
+        let filename = image.split('\\').pop();
+
+        data.push([product_name, product_category, filename, product_freshness, description, product_price]);
+        data.forEach((datas, index) => {
+          let no = index + 1;
+          row = tabel_data.insertRow();
+          row.insertCell().innerHTML = no;
+          datas.forEach((item) => {
+            row.insertCell().innerHTML = item;
+          });
+        });
+        console.log(data);
+      }
+      searchBtn.addEventListener('click', () => {
+        let found = false;
+        data.forEach((datas) => {
+          if (datas[0] === search.value) {
+            return (found = true);
+          }
+        });
+        if (found) {
+          alert('Data ' + search.value + ' Tersedia');
+        } else {
+          alert('Data tidak ada');
+        }
+      });
+      deleteBtn.addEventListener('click', () => {
+        const baris_terakhir = data.length - 1;
+        tabel_data.deleteRow(baris_terakhir);
+        data.pop();
+      });
+
+      const namaInput = document.getElementById('product_name');
+      const productCategory = document.getElementById('product_category');
+      const image = document.getElementById('image');
+      const productFreshness = document.getElementById('product_freshness');
+      const description = document.getElementById('description');
+      const price = document.getElementById('product_price');
+      const namaError = document.getElementById('nama-error');
+
+      namaInput.addEventListener('blur', function () {
+        if (namaInput.value.length == '') {
+          namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
+        } else {
+          namaError.innerHTML = '';
+        }
+      });
+      productCategory.addEventListener('blur', function () {
+        if (productCategory.value.length == '') {
+          namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
+        } else {
+          namaError.innerHTML = '';
+        }
+      });
+      image.addEventListener('blur', function () {
+        if (image.value.length == '') {
+          namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
+        } else {
+          namaError.innerHTML = '';
+        }
+      });
+      productFreshness.addEventListener('blur', function () {
+        if (productFreshness.value.length == '') {
+          namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
+        } else {
+          namaError.innerHTML = '';
+        }
+      });
+      description.addEventListener('blur', function () {
+        if (description.value.length == '') {
+          namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
+        } else {
+          namaError.innerHTML = '';
+        }
+      });
+      price.addEventListener('blur', function () {
+        if (price.value.length == '') {
+          namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
+        } else {
+          namaError.innerHTML = '';
+        }
+      });
+    </script>
 
     <!-- cdn -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
