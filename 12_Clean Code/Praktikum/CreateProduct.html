@@ -128,9 +128,9 @@
         //variabel validasi input createProduct
         var product_name = document.getElementById('product_name').value;
         var product_category = document.getElementById('product_category').value;
-        var image = document.getElementById('image').value;
+        var product_image = document.getElementById('image').value;
         var product_freshness = document.getElementById('product_freshness').value;
-        var description = document.getElementById('description').value;
+        var product_description = document.getElementById('description').value;
         var product_price = document.getElementById('product_price').value;
         var submit_button = document.getElementById('submit_button');
         let batasInputProductName = 25;
@@ -152,7 +152,8 @@
           inputValid = false;
         }
 
-        if (!product_category || !image || !product_freshness || !description) {
+        //validasi jika input kosong
+        if (!product_category || !product_image || !product_freshness || !product_description) {
           alert('The xxx field must be filled in');
           inputValid = false;
         }
@@ -162,11 +163,11 @@
           submit_button.disabled = true;
         } else {
           submit_button.disabled = false;
-          alert('Product Name: ' + product_name + ' ,Cateogry: ' + product_category + ' ,Image: ' + image + ' ,Product Freshness: ' + product_freshness + ' ,Description: ' + description + ' ,Price: ' + product_price);
+          alert('Product Name: ' + product_name + ' ,Cateogry: ' + product_category + ' ,Image: ' + product_image + ' ,Product Freshness: ' + product_freshness + ' ,Description: ' + product_description + ' ,Price: ' + product_price);
         }
 
         //menjalankan fungsi tambahData
-        tambahData(product_name, product_category, image, product_freshness, description, product_price);
+        tambahData(product_name, product_category, product_image, product_freshness, product_description, product_price);
       }
 
       //variabel data tabel
@@ -178,10 +179,10 @@
       var searchBtn = document.getElementById('searchBtn');
 
       //fungsi tambahData
-      function tambahData(product_name, product_category, image, product_freshness, description, product_price) {
+      function tambahData(product_name, product_category, product_image, product_freshness, description, product_price) {
         tabel_data.innerHTML = '';
         let filename = image.split('\\').pop();
-        data.push([product_name, product_category, filename, product_freshness, description, product_price]);
+        data.push([product_name, product_category, filename, product_freshness, product_description, product_price]);
         data.forEach((datas, baris) => {
           let no = baris + 1;
           row = tabel_data.insertRow();
@@ -219,6 +220,7 @@
       const price = document.getElementById('product_price');
       const namaError = document.getElementById('nama-error');
 
+      //memberikan error jika input kosong
       namaInput.addEventListener('blur', function () {
         if (namaInput.value.length == '') {
           namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';

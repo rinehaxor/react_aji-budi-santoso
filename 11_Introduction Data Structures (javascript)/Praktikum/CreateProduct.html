@@ -132,12 +132,6 @@
         var product_price = document.getElementById('product_price').value;
         var submit_button = document.getElementById('submit_button');
         var valid = true;
-        const data = [];
-        var tabel_data = document.getElementById('tabel_data');
-        let row;
-        var deleteBtn = document.getElementById('delete');
-        var search = document.getElementById('search');
-        var searchBtn = document.getElementById('searchBtn');
 
         var simbol = /^[a-zA-Z0-9 ]*$/;
 
@@ -167,7 +161,12 @@
         console.log(image);
         tambahData(product_name, product_category, image, product_freshness, description, product_price);
       }
-
+      const data = [];
+      var tabel_data = document.getElementById('tabel_data');
+      let row;
+      var deleteBtn = document.getElementById('delete');
+      var search = document.getElementById('search');
+      var searchBtn = document.getElementById('searchBtn');
       function tambahData(product_name, product_category, image, product_freshness, description, product_price) {
         tabel_data.innerHTML = '';
         let filename = image.split('\\').pop();
