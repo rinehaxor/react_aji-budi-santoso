@@ -132,6 +132,12 @@
         var product_price = document.getElementById('product_price').value;
         var submit_button = document.getElementById('submit_button');
         var valid = true;
+        const data = [];
+        var tabel_data = document.getElementById('tabel_data');
+        let row;
+        var deleteBtn = document.getElementById('delete');
+        var search = document.getElementById('search');
+        var searchBtn = document.getElementById('searchBtn');
 
         var simbol = /^[a-zA-Z0-9 ]*$/;
 
@@ -162,20 +168,12 @@
         tambahData(product_name, product_category, image, product_freshness, description, product_price);
       }
 
-      const data = [];
-      const tabel_data = document.getElementById('tabel_data');
-      let row;
-      const deleteBtn = document.getElementById('delete');
-      const search = document.getElementById('search');
-      const searchBtn = document.getElementById('searchBtn');
-
       function tambahData(product_name, product_category, image, product_freshness, description, product_price) {
         tabel_data.innerHTML = '';
         let filename = image.split('\\').pop();
-
         data.push([product_name, product_category, filename, product_freshness, description, product_price]);
-        data.forEach((datas, index) => {
-          let no = index + 1;
+        data.forEach((datas, baris) => {
+          let no = baris + 1;
           row = tabel_data.insertRow();
           row.insertCell().innerHTML = no;
           datas.forEach((item) => {
