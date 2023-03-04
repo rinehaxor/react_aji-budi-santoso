@@ -171,7 +171,7 @@
       }
 
       //variabel data tabel
-      const data = [];
+      const dataTable = [];
       var tabel_data = document.getElementById('tabel_data');
       let row;
       var deleteBtn = document.getElementById('delete');
@@ -179,11 +179,11 @@
       var searchBtn = document.getElementById('searchBtn');
 
       //fungsi tambahData
-      function tambahData(product_name, product_category, product_image, product_freshness, description, product_price) {
+      function tambahData(product_name, product_category, product_image, product_freshness, product_description, product_price) {
         tabel_data.innerHTML = '';
-        let filename = image.split('\\').pop();
-        data.push([product_name, product_category, filename, product_freshness, product_description, product_price]);
-        data.forEach((datas, baris) => {
+        let filename = product_image.split('\\').pop();
+        dataTable.push([product_name, product_category, filename, product_freshness, product_description, product_price]);
+        dataTable.forEach((datas, baris) => {
           let no = baris + 1;
           row = tabel_data.insertRow();
           row.insertCell().innerHTML = no;
@@ -193,10 +193,10 @@
         });
       }
 
-      //validasi search data
+      //validasi search data tabel
       searchBtn.addEventListener('click', () => {
         let dataDitemukan = false;
-        data.forEach((datas) => {
+        dataTable.forEach((datas) => {
           if (datas[0] === search.value) {
             return (dataDitemukan = true);
           }
@@ -208,14 +208,11 @@
       deleteBtn.addEventListener('click', () => {
         const baris_terakhir = data.length - 1;
         tabel_data.deleteRow(baris_terakhir);
-        data.pop();
+        dataTable.pop();
       });
 
       //variabel jika tidak memasukan input
       const namaInput = document.getElementById('product_name');
-      const productCategory = document.getElementById('product_category');
-      const image = document.getElementById('image');
-      const productFreshness = document.getElementById('product_freshness');
       const description = document.getElementById('description');
       const price = document.getElementById('product_price');
       const namaError = document.getElementById('nama-error');
@@ -224,43 +221,16 @@
       namaInput.addEventListener('blur', function () {
         if (namaInput.value.length == '') {
           namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
-        } else {
-          namaError.innerHTML = '';
-        }
-      });
-      productCategory.addEventListener('blur', function () {
-        if (productCategory.value.length == '') {
-          namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
-        } else {
-          namaError.innerHTML = '';
-        }
-      });
-      image.addEventListener('blur', function () {
-        if (image.value.length == '') {
-          namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
-        } else {
-          namaError.innerHTML = '';
-        }
-      });
-      productFreshness.addEventListener('blur', function () {
-        if (productFreshness.value.length == '') {
-          namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
-        } else {
-          namaError.innerHTML = '';
         }
       });
       description.addEventListener('blur', function () {
         if (description.value.length == '') {
           namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
-        } else {
-          namaError.innerHTML = '';
         }
       });
       price.addEventListener('blur', function () {
         if (price.value.length == '') {
           namaError.innerHTML = '<i class="fas fa-times"></i> Wajib di Isi';
-        } else {
-          namaError.innerHTML = '';
         }
       });
     </script>
