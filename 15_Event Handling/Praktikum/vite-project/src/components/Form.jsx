@@ -5,20 +5,22 @@ import { article } from '../bahasaDeskripsi';
 import React, { useState } from 'react';
 
 export default function Form() {
-  function handleClick(e) {
+  //handle random angka console
+  function clickNomerAcak(e) {
     const randomNumber = Math.floor(Math.random() * 100);
     console.log('Nomor acak: ' + randomNumber);
     e.preventDefault();
   }
   //state validasi input form
   const [productName, setProductName] = useState('');
-  const [isProductDescValid, setIsProductDescValid] = useState('');
+  const [ProductDescValid, setProductDescValid] = useState('');
+  const [ProductPriceValid, setProductPriceValid] = useState('');
   //state ganti bahasa
-  const [isIndonesian, setIsIndonesian] = useState('');
+  const [isIndonesia, setIsIndonesia] = useState('');
 
   //handle ganti bahasa
-  const handleLanguageChange = () => {
-    setIsIndonesian(!isIndonesian);
+  const handleGantiBahasa = () => {
+    setIsIndonesia(!isIndonesia);
   };
 
   //validasi input form productname
@@ -35,13 +37,13 @@ export default function Form() {
 
   return (
     <>
-      <button onClick={handleLanguageChange}>{isIndonesian ? 'EN' : 'ID'}</button>
+      <button onClick={handleGantiBahasa}>{isIndonesia ? 'EN' : 'ID'}</button>
       <div className="container">
         <section className="justify-content">
           <div className="deskripsi text-center">
             <img src={logo} alt="bootstrap" />
-            <p className=" fs-2 fw-semibold pt-5">{isIndonesian ? article.title.id : article.title.en}</p>
-            <span className="fs-5 fw-lighter">{isIndonesian ? article.description.id : article.description.en}</span>
+            <p className=" fs-2 fw-semibold pt-5">{isIndonesia ? article.title.id : article.title.en}</p>
+            <span className="fs-5 fw-lighter">{isIndonesia ? article.description.id : article.description.en}</span>
           </div>
           <div className={styles.inputForm}>
             <form action="" className="inputForm container-fluid m-5 " id="myForm">
@@ -97,25 +99,35 @@ export default function Form() {
                 <label className="form-label">Additional Description</label>
                 <textarea
                   style={{ width: 1000, height: 200 }}
-                  className={`form-control ${isProductDescValid ? '' : 'is-invalid'}`}
+                  className={`form-control ${ProductDescValid ? '' : 'is-invalid'}`}
                   rows="3"
                   placeholder="Product Description"
                   onChange={(e) => {
                     const minInputDesc = 10;
-                    setIsProductDescValid(e.target.value.length >= minInputDesc);
+                    setProductDescValid(e.target.value.length >= minInputDesc);
                   }}
                 />
-                {!isProductDescValid && <div className="invalid-feedback">Deskripsi minimal berisi 10 karakter</div>}
+                {!ProductDescValid && <div className="invalid-feedback">Deskripsi minimal berisi 10 karakter</div>}
               </div>
               <div className="mb-5 has-validation">
                 <label htmlFor="productPrice" className="form-label">
                   Product Price
                 </label>
-                <input type="number" name="price" className="form-control" id="product_price" placeholder="$1" required="" />
-                <span id="nama-error" />
+                <input
+                  type="number"
+                  name="price"
+                  id="product_price"
+                  placeholder="$1"
+                  required
+                  className={`form-control ${ProductPriceValid ? '' : 'is-invalid'}`}
+                  onChange={(e) => {
+                    setProductPriceValid(e.target.value.length !== 0);
+                  }}
+                />
+                {!ProductPriceValid && <div className="invalid-feedback">Price harus di isi</div>}
               </div>
               <Button label="Submit" />
-              <Button label="Angka Random" onClick={handleClick} />
+              <Button label="Angka Random" onClick={clickNomerAcak} />
             </form>
           </div>
         </section>
