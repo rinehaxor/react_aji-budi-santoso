@@ -97,11 +97,12 @@ export default function Form() {
                 <label className="form-label">Additional Description</label>
                 <textarea
                   style={{ width: 1000, height: 200 }}
-                  className={`form-control rows={10} ${isProductDescValid ? '' : 'is-invalid'}`}
+                  className={`form-control ${isProductDescValid ? '' : 'is-invalid'}`}
                   rows="3"
                   placeholder="Product Description"
                   onChange={(e) => {
-                    setIsProductDescValid(e.target.value.length >= 10);
+                    const minInputDesc = 10;
+                    setIsProductDescValid(e.target.value.length >= minInputDesc);
                   }}
                 />
                 {!isProductDescValid && <div className="invalid-feedback">Deskripsi minimal berisi 10 karakter</div>}
