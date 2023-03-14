@@ -56,13 +56,10 @@ export default function Form() {
               <div className="mb-3 col-md-4 col-sm-6 has-validation">
                 <label htmlFor="product_category" className="form-label">
                   Product Category
-                  <select name="product_category" className="form-select" id="product_category" required="">
-                    <option selected="" disabled="" value="">
-                      Pilih kategori produk
-                    </option>
-                    <option value={1}>Category 1</option>
-                    <option value={2}>Category 2</option>
-                    <option value={3}>Category 3</option>
+                  <select name="product_category" defaultValue="category1" className="form-select" id="product_category" required="">
+                    <option value="category1">Category 1</option>
+                    <option value="category2">Category 2</option>
+                    <option value="category3">Category 3</option>
                   </select>
                 </label>
               </div>
