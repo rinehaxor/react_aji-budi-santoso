@@ -12,7 +12,6 @@ export default function Form() {
     e.preventDefault();
   }
   //state validasi input form
-  const [ProductDescValid, setProductDescValid] = useState('');
   const [ProductPriceValid, setProductPriceValid] = useState('');
   //state ganti bahasa
   const [isIndonesia, setIsIndonesia] = useState('');
@@ -184,15 +183,15 @@ export default function Form() {
               </div>
               <div className="mb-3">
                 <label className="form-label">Additional Description</label>
-                <textarea style={{ width: 1000, height: 200 }} className={`form-control ${ProductDescValid ? '' : 'is-invalid'}`} rows="3" placeholder="Product Description" onChange={handleDeskripsi} />
-                {!ProductDescValid && <div className="invalid-feedback">Deskripsi minimal berisi 10 karakter</div>}
+                <textarea style={{ width: 1000, height: 200 }} className={`form-control ${'is-invalid'}`} rows="3" placeholder="Product Description" onChange={handleDeskripsi} />
+                {<div className="invalid-feedback">Deskripsi minimal berisi 10 karakter</div>}
               </div>
               <div className="mb-5 has-validation">
                 <label htmlFor="productPrice" className="form-label">
                   Product Price
                 </label>
-                <input type="number" name="productPrice" id="product_price" placeholder="$1" required className={`form-control ${ProductPriceValid ? '' : 'is-invalid'}`} onChange={handleProductPrice} />
-                {!ProductPriceValid && <div className="invalid-feedback">Price harus di isi</div>}
+                <input type="number" name="productPrice" id="product_price" placeholder="$1" required className={`form-control ${'is-invalid'}`} onChange={handleProductPrice} />
+                {<div className="invalid-feedback">Price harus di isi</div>}
               </div>
               <Button label="Submit" className="btn btn-primary w-100 mb-5" />
             </form>
