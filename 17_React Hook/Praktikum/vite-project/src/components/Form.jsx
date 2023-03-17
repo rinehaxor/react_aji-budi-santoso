@@ -2,17 +2,20 @@ import styles from '../pages/CreateProduct.module.css';
 import Button from './Button';
 import logo from '../assets/logo.png';
 import { article } from '../bahasaDeskripsi';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Form() {
+  //alert untuk salam welcome
+  useEffect(() => {
+    alert('Welcome');
+  }, []);
+
   //handle random angka console
   function clickNomerAcak(e) {
     const randomNumber = Math.floor(Math.random() * 100);
     console.log('Nomor acak: ' + randomNumber);
     e.preventDefault();
   }
-  //state validasi input form
-  const [ProductPriceValid, setProductPriceValid] = useState('');
   //state ganti bahasa
   const [isIndonesia, setIsIndonesia] = useState('');
 
@@ -21,6 +24,7 @@ export default function Form() {
     setIsIndonesia(!isIndonesia);
   };
 
+  //state untuk data di tabel
   const [data, setData] = useState([]);
   const [formData, setFormData] = useState({
     id: '',
@@ -30,7 +34,6 @@ export default function Form() {
     productFreshness: '',
     productPrice: '',
   });
-  const [isEditing, setIsEditing] = useState(false);
 
   //validasi input form productname
   const maxInputProductName = 10;
@@ -77,12 +80,17 @@ export default function Form() {
     }
   };
 
+  //handle untuk mengambil data input user
   const handleChange = (event) => {
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
     });
   };
+
+  // state untuk mengedit
+  const [isEditing, setIsEditing] = useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -100,24 +108,18 @@ export default function Form() {
     } else {
       setData([...data, { ...formData, id: data.length + 1 }]);
     }
-
-    setFormData({
-      id: '',
-      productName: '',
-      productCategory: '',
-      image: '',
-      productFreshness: '',
-      productPrice: '',
-    });
   };
+  //handle untuk mengedit data
   const handleEdit = (item) => {
     setFormData(item);
     setIsEditing(true);
   };
 
   const handleDelete = (id) => {
-    const newData = data.filter((item) => item.id !== id);
-    setData(newData);
+    if (window.confirm('Apakah Anda yakin ingin menghapus data ini?')) {
+      const newData = data.filter((item) => item.id !== id);
+      setData(newData);
+    }
   };
 
   return (
@@ -204,7 +206,7 @@ export default function Form() {
         <table className="table table-striped">
           <thead>
             <tr>
-              <th scope="col">No</th>
+              <th scope="col">ID</th>
               <th scope="col">Product Name</th>
               <th scope="col">product category</th>
               <th scope="col">Product Freshness</th>
