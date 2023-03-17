@@ -30,31 +30,27 @@ function Example() {
 #### Contoh Penggunaan Stateful
 
 ```jsx
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class Counter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0,
-    };
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  function increment() {
+    setCount(count + 1);
   }
 
-  incrementCount = () => {
-    this.setState((prevState) => ({ count: prevState.count + 1 }));
-  };
-
-  render() {
-    return (
-      <div>
-        <h1>Hitungan: {this.state.count}</h1>
-        <button onClick={this.incrementCount}>Tambah 1</button>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <p>Anda telah mengklik tombol {count} kali</p>
+      <button onClick={increment}>
+        Klik untuk menambah
+      </button>
+    </div>
+  );
 }
 
 export default Counter;
+
 ```
 
 #### Contoh Penggunaan Stateless
