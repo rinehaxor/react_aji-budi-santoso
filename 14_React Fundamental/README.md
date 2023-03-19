@@ -38,4 +38,4 @@ React Lifecycle merupakan serangkaian metode atau fungsi yang dipanggil oleh Rea
 
 - `CSS biasa`: Kita dapat menggunakan CSS biasa dengan menuliskan file CSS terpisah dan mengimportnya ke dalam file komponen React.
 - `CSS Modules` :  CSS Modules adalah teknik styling yang memungkinkan kita untuk mengakses kelas CSS sebagai objek di dalam file JavaScript. Contoh penggunaannya adalah `className = {style.card}` dengan `style` adalah nama css module yang sudah di import dan `card` adalah nama komponen.
-- `CSS Inline` :  Selain itu, kita juga dapat menuliskan CSS secara inline menggunakan atribut style. contoh penggunaanya adalah `style={{paddingBottom:10}}` dengan peraturan react menggunakan tanda `{{}}` secara dua kali untuk react mengetahui bahwa itu style.
+- `CSS Inline` :  Selain itu, kita juga dapat menuliskan CSS secara inline menggunakan atribut style. contoh penggunaanya adalah `style={{paddingBottom:10}}` dengan peraturan react menggunakan tanda `{{}}` secara dua kali untuk react mengetahui bahwa itu style .
