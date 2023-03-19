@@ -4,7 +4,7 @@ import logo from '../assets/logo.png';
 import { article } from '../bahasaDeskripsi';
 import React, { useState, useEffect } from 'react';
 
-export default function Form() {
+export default function Form(props) {
   //alert untuk salam welcome
   useEffect(() => {
     alert('Welcome');
@@ -121,7 +121,7 @@ export default function Form() {
       setData(newData);
     }
   };
-
+  console.log(data);
   return (
     <>
       <button className="btn btn-primary" onClick={handleGantiBahasa}>
