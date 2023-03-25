@@ -9,7 +9,6 @@ import { article } from '../../bahasaDeskripsi';
 
 export default function Form() {
   const [formData, setFormData] = useState([]);
-  const [image, setImage] = useState(null);
   const imageRef = useRef(null);
   const inputImageRef = useRef(null);
   const {

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import Coba from './Coba';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 import CreateProduct from './pages/createProduct';
 import LandingPage from './pages/LandingPage';
 import RootLayoutProduct from './rootLayoutProduct';
@@ -40,6 +42,26 @@ const router = createBrowserRouter([
         path: ':id',
         element: <PostDetailPage />,
         // loader: PostDetailPageLoader,
+      },
+    ],
+  },
+  {
+    path: '/login',
+    element: <RootLayoutLanding />,
+    children: [
+      {
+        element: <LoginPage />,
+        index: true,
+      },
+    ],
+  },
+  {
+    path: '/register',
+    element: <RootLayoutLanding />,
+    children: [
+      {
+        element: <RegisterPage />,
+        index: true,
       },
     ],
   },
