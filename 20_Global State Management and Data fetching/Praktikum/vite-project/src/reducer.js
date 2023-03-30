@@ -14,7 +14,6 @@ const reducer = (state = initialState, action) => {
         ...state,
         formData: state.formData.filter((data) => data.id !== action.payload),
       };
-
     default:
       return state;
   }

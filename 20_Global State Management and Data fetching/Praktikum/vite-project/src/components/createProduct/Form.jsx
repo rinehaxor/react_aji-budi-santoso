@@ -30,9 +30,9 @@ export default function Form() {
   };
 
   const handleEdit = (id) => {
-    const editedData = formData.find((data) => data.id === id);
+    const editedData = formData.find((data) => data.id == id);
     reset(editedData);
-    dispatch({ type: 'EDIT_DATA', payload: id });
+    dispatch({ type: 'DELETE_DATA', payload: id });
   };
 
   //alert untuk salam welcome
