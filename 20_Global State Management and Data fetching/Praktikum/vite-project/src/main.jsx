@@ -9,8 +9,8 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import CreateProduct from './pages/createProduct';
 import LandingPage from './pages/LandingPage';
-import RootLayoutProduct from './rootLayoutProduct';
-import RootLayoutLanding from './rootLayoutLanding';
+import RootLayoutProduct from './layouts/rootLayoutProduct';
+import RootLayoutLanding from './layouts/rootLayoutLanding';
 import PostDetailPage from './components/landingPage/postDetail';
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 
