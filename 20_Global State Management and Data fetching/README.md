@@ -1,4 +1,4 @@
-#Summary Global State Management and Data Fetching
+# Summary Global State Management and Data Fetching
 
 ## Global State
 Pengelolaan state global dalam React adalah pendekatan yang digunakan untuk mengelola dan membagi data atau keadaan aplikasi secara global di seluruh komponen React. Dalam aplikasi React yang lebih besar dan kompleks,  diperlukan solusi pengelolaan state yang lebih terstruktur untuk  aplikasi tetap mudah dikelola.
