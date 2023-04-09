@@ -54,20 +54,16 @@ export default function Form() {
       const response = await axios.post(`${BASE_URL}`, data);
       console.log(response.data);
       reloadData();
-      // Tampilkan pesan sukses atau lakukan tindakan lain setelah menambahkan produk
     } catch (error) {
       console.error(error);
-      // Tampilkan pesan error atau lakukan tindakan lain jika gagal menambahkan produk
     }
   };
   const deleteProduct = async (id) => {
     try {
       await axios.delete(`${BASE_URL}/${id}`);
       reloadData();
-      // Tampilkan pesan sukses atau lakukan tindakan lain setelah menghapus produk
     } catch (error) {
       console.error(error);
-      // Tampilkan pesan error atau lakukan tindakan lain jika gagal menghapus produk
     }
   };
 
