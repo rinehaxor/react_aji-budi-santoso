@@ -138,7 +138,7 @@ export default function Products() {
   const handleUpdateProduct = async (data) => {
     try {
       const { productName, productCategory, productFreshness, productDescription, productPrice, image } = data;
-      const id = '7f9d96b6-da3c-4a27-a61f-2c8b36e86a5f';
+      const id = '8185e1d9-3c37-426f-8a94-d272b64cfcc3';
       setEditingProduct(data);
       await updateProduct({
         variables: {

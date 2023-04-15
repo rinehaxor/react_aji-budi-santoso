@@ -233,7 +233,7 @@ export default function Form() {
         <table className="table table-striped">
           <thead>
             <tr>
-              <th scope="col">ID</th>
+              <th scope="col">id</th>
               <th scope="col">Product Name</th>
               <th scope="col">product category</th>
               <th scope="col">Product Freshness</th>
