@@ -14,14 +14,24 @@ const GetProductList = gql`
       productName
       productCategory
       productFreshness
-      productDescription
       productPrice
       image
     }
   }
 `;
+const CREATE_PRODUCT = gql`
+  mutation CreateProduct($productName: String!, $productCategory: String!, $productFreshness: String!, $productPrice: Int!) {
+    insert_products_one(object: { productName: $productName, productCategory: $productCategory, productFreshness: $productFreshness, productPrice: $productPrice }) {
+      id
+      productName
+      productCategory
+      productFreshness
+      productPrice
+    }
+  }
+`;
 const DELETE_PRODUCT = gql`
-  mutation MyMutation($id: String!) {
+  mutation MyMutation($id: uuid!) {
     delete_products_by_pk(id: $id) {
       id
       productName
@@ -35,7 +45,7 @@ const DELETE_PRODUCT = gql`
 `;
 
 const UPDATE_PRODUCT = gql`
-  mutation UpdateProduct($id: String!, $productName: String!, $productCategory: String!, $productFreshness: String!, $productDescription: String!, $productPrice: Int!) {
+  mutation UpdateProduct($id: uuid!, $productName: String!, $productCategory: String!, $productFreshness: String!, $productDescription: String, $productPrice: Int!) {
     update_products_by_pk(pk_columns: { id: $id }, _set: { productName: $productName, productCategory: $productCategory, productFreshness: $productFreshness, productDescription: $productDescription, productPrice: $productPrice }) {
       id
       productName
@@ -56,10 +66,34 @@ export default function Products() {
   } = useForm({
     mode: 'onChange',
   });
-  const { data, loading, error, refetch } = useQuery(GetProductList);
+
   const [deleteProduct] = useMutation(DELETE_PRODUCT);
   const [updateProduct] = useMutation(UPDATE_PRODUCT);
+  const [createProduct] = useMutation(CREATE_PRODUCT);
   const [editingProduct, setEditingProduct] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const onSearch = () => {
+    const inputValue = document.getElementById('search').value;
+    setSearchTerm(inputValue);
+  };
+
+  const GetProductList = gql`
+    query Myquery($searchTerm: String!) {
+      products(where: { productName: { _ilike: $searchTerm } }) {
+        id
+        productName
+        productCategory
+        productFreshness
+        productPrice
+        image
+      }
+    }
+  `;
+
+  const { data, loading, error, refetch } = useQuery(GetProductList, {
+    variables: { searchTerm: `%${searchTerm}%` },
+  });
 
   useEffect(() => {
     if (editingProduct) {
@@ -70,6 +104,26 @@ export default function Products() {
       setValue('productPrice', editingProduct.productPrice);
     }
   }, [editingProduct]);
+
+  const handleCreateProduct = async (data) => {
+    try {
+      const { productName, productCategory, productFreshness, productPrice } = data;
+
+      await createProduct({
+        variables: {
+          productName,
+          productCategory,
+          productFreshness,
+
+          productPrice,
+        },
+      });
+
+      refetch();
+    } catch (error) {
+      console.error('Error creating product:', error);
+    }
+  };
 
   const handleDelete = async (id) => {
     try {
@@ -84,7 +138,7 @@ export default function Products() {
   const handleUpdateProduct = async (data) => {
     try {
       const { productName, productCategory, productFreshness, productDescription, productPrice, image } = data;
-      const id = '1'; // Ganti dengan ID produk yang akan diedit
+      const id = '7f9d96b6-da3c-4a27-a61f-2c8b36e86a5f';
       setEditingProduct(data);
       await updateProduct({
         variables: {
@@ -97,8 +151,6 @@ export default function Products() {
           image,
         },
       });
-
-      // Logika setelah berhasil mengupdate produk (misal: menavigasi ke halaman lain atau menampilkan pesan sukses)
     } catch (error) {
       console.error('Error updating product:', error);
     }
@@ -106,7 +158,7 @@ export default function Products() {
 
   if (loading) {
     console.log(loading);
-    return 'loading';
+    return null;
   }
 
   if (error) {
@@ -118,7 +170,13 @@ export default function Products() {
       <div className="container">
         <section className="justify-content">
           <div className={styles.inputForm}>
-            <form action="" className="inputForm container-fluid m-5" id="myForm" data-testid="form" onSubmit={handleSubmit(handleUpdateProduct)}>
+            <input type="text" className="form-control w-25 mb-3" id="search" placeholder="Cari produk..." />
+
+            <button className="btn btn-primary" onClick={onSearch}>
+              Cari
+            </button>
+
+            <form action="" className="inputForm container-fluid m-5" id="myForm" data-testid="form" onSubmit={handleSubmit(editingProduct ? handleUpdateProduct : handleCreateProduct)}>
               <h3 className="mb-3">Detail Product</h3>
               <div className="mb-3 col-md-6 col-sm-8">
                 <label htmlFor="product_name" className="form-label has-validation">
