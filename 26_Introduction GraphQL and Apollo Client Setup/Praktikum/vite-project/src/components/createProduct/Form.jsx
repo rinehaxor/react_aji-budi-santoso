@@ -229,7 +229,7 @@ export default function Form() {
         </section>
       </div>
       <div className="container">
-        <h2 className="text-center fw-bold fs-2">List Product</h2>
+        <h2 className="text-center fw-bold fs-2">List Products</h2>
         <table className="table table-striped">
           <thead>
             <tr>
